@@ -65,9 +65,22 @@
             <form>
 
               <div class="form-group">
-                <label for="Label1">Nome e cognome:<input type="text" class="form-control" id="Label1" placeholder="Nome Cognome"></label>
+                <label for="Label1">Nome:<input type="text" class="form-control" id="Label1" placeholder="Nome"></label>
 
               </div>
+
+              <div class="form-group">
+                <label for="Label2">Cognome:<input type="text" class="form-control" id="Label2" placeholder="Cognome"></label>
+
+              </div>
+              <div class="form-group">
+              
+                <label for="data" class="col-sm-4">Data di Nascita:</label>
+                <div class="col-sm-6">
+                  <input type="date" class="form-control" name="dob" id="dob" placeholder="mm/dd/yyyy">
+                </div>
+              </div>
+              
 
               <div class="form-group">
 
@@ -81,16 +94,18 @@
               </div>
 
               <div class="form-group">
-
-                <label for="Label3">Sesso:</label>
-                <select id="Label3" class="custom-select Label3">
-                  <option selected value="0">Maschio</option>
-                  <option value="1">Femmina</option>
-                </select>
+                <div class="col-sm-4">
+                  <label class="radio-inline">
+                    <input type="radio" name="gender" id="male"  value="male"> Maschio
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="gender" id="female" value="female"> Femmina
+                </div>
               </div>
           </div>
+
           <div class="modal-footer">
-            <button type="submit" onclick="Invia();" class="btn btn-success">Invia</button>
+            <button type="submit" id="aggiungi" onclick="Invia();" class="btn btn-success">Invia</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Annulla</button>
           </div>
         </div>
