@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/stili.css">
+    <title>Elenco</title>
+    <script type="text/javascript" src="Script.js"></script>
+</head>
+
+<body>
+    <button type="button" class="my-3 btn btn-primary" data-toggle="modal" data-target="#Bottone2">
+        Aggiungi
+    </button>
+    <div class="modal fade show" id="Bottone2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: block;" aria-modal="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Crea nuovo record</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="container">
+        
+                  <div id="div1" class="col-sm-12">
+        
+                    
+        
+                      <div class="form-group">
+                        <label for="nome">Nome:<input type="text" class="form-control" id="nome" placeholder="Nome" required></label>
+        
+                      </div>
+        
+                      <div class="form-group">
+                        <label for="cognome">Cognome:<input type="text" class="form-control" id="cognome" placeholder="Cognome" required></label>
+        
+                      </div>
+                      <div class="form-group">
+                      
+                        <label for="data">Data di Nascita:</label>
+                        <div class="col-sm-6">
+                          <input type="date" class="form-control" name="dob" id="data" placeholder="mm/dd/yyyy" required>
+                        </div>
+                      </div>
+                      
+        
+                      <div class="form-group">
+        
+                        <label for="reddito">Reddito:</label>
+                        <select id="reddito" class="custom-select">
+                          <option value="0">0-25.000</option>
+                          <option value="1">25.000-50.000</option>
+                          <option value="2">50.000-75.000</option>
+                          <option value="3">Oltre 75.000</option>
+                        </select>
+                      </div>
+        
+                      <div class="form-group">
+                        <div class="col-sm-4">
+                          <label class="radio-inline" for="male">
+                            <input type="radio" name="gender" id="male" value="male"> Maschio
+                          </label>
+                          <label class="radio-inline" for="female">
+                            <input type="radio" name="gender" id="female" value="female"> Femmina
+                        </label></div>
+                      </div>
+                  </div>
+        
+                  <div class="modal-footer">
+                    <button type="submit" id="aggiungi" class="btn btn-success">Salva</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Annulla</button>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+        
+          </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
