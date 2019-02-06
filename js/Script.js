@@ -1,11 +1,22 @@
 
-$(document).ready(function(){
+/*$(document).ready(function(){
     
 p = new persona("a","b","c","d","e");
 $("#elimina").click(function(){
     p.Esistenza();
 });
-})
+})*/
+$(document).ready(function(){
+    $("#invia").click(function(){
+      Aggiungi();
+    });
+    $("#maschio").click(function(){
+      AggiornaM();
+    });
+    $("#femmina").click(function(){
+      AggiornaF();
+    })
+  });
 
 class persona{
     constructor(nome, cognome, datanascita, reddito, sesso){
