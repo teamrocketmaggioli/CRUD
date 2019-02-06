@@ -9,8 +9,8 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-        crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/stili.css">
   <title>Elenco</title>
   <script type="text/javascript" src="../js/Script.js"></script>
@@ -18,16 +18,16 @@
 
 <body>
 
-  <!-- Button trigger modal -->
+  <!-- Button Aggiungi -->
   <div class="container">
-    <form>
 
-      <button type="button" class="my-3 btn btn-primary" data-toggle="modal" data-target="#Bottone2">
+      <button type="button" class="my-3 btn btn-primary" data-toggle="modal" data-target="#formAggiungi">
         Aggiungi
       </button>
-    
-      <!-- Modal 2-->
-      <div class="modal fade" id="Bottone2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+      <!-- Modal Aggiungi-->
+      <div class="modal fade" id="formAggiungi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -37,148 +37,185 @@
               </button>
             </div>
             <div class="container">
-    
+
               <div id="div1" class="col-sm-12">
-    
+
                 <form>
-    
+
                   <div class="form-group">
-                    <label for="nome">Nome:<input type="text" class="form-control" id="nome" placeholder="Nome" required></label>
-    
+                    <label for="nome">Nome:<input type="text" class="form-control" id="nome" placeholder="Nome"
+                        required></label>
+
                   </div>
-    
+
                   <div class="form-group">
-                    <label for="cognome">Cognome:<input type="text" class="form-control" id="cognome" placeholder="Cognome" required></label>
-    
+                    <label for="cognome">Cognome:<input type="text" class="form-control" id="cognome" placeholder="Cognome"
+                        required></label>
+
                   </div>
                   <div class="form-group">
-                  
+
                     <label for="data">Data di Nascita:</label>
                     <div class="col-sm-6">
-                      <input type="date" class="form-control" name="dob" id="data" placeholder="mm/dd/yyyy" required>
+                      <input type="date" class="form-control" name="dob" id="data" placeholder="gg/mm/aaaa" required>
                     </div>
                   </div>
-                  
-    
+
+
                   <div class="form-group">
-    
+
                     <label for="reddito">Reddito:</label>
                     <select id="reddito" class="custom-select">
-                      <option value="0">0-25.000</option>
-                      <option value="1">25.000-50.000</option>
-                      <option value="2">50.000-75.000</option>
-                      <option value="3">Oltre 75.000</option>
+                      <option value="0-25.000">0-25.000</option>
+                      <option value="25.000-50.000">25.000-50.000</option>
+                      <option value="50.000-75.000">50.000-75.000</option>
+                      <option value="Oltre 75.000">Oltre 75.000</option>
                     </select>
                   </div>
-    
+
                   <div class="form-group">
                     <div class="col-sm-4">
                       <label class="radio-inline" for="male">
-                        <input type="radio" name="gender" id="male"  value="male" checked> Maschio
+                        <input type="radio" name="gender" id="male" value="male" checked> Maschio
                       </label>
                       <label class="radio-inline" for="female">
                         <input type="radio" name="gender" id="female" value="female"> Femmina
                     </div>
                   </div>
               </div>
-    
+
               <div class="modal-footer">
                 <input type="button" id="aggiungi" class="btn btn-success" data-dismiss="modal" value="Salva">
                 <input type="button" class="btn btn-danger" data-dismiss="modal" value="Annulla">
               </div>
             </div>
-            </form>
-          </div>
+  </div>
+  </div>
+
+  </div>
+  </form>
+  </div>
+
+
+
+  <!-- Button Elimina -->
+  <div class="modal fade" id="formElimina" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Vuoi eliminare il record?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-    
-      </div>
-    </form>
+        <div class="modal-body">
 
-
-
-    <!-- Modal 2-->
-    <div class="modal fade" id="Bottone2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Crea nuovo record</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="container">
-
-            <div id="div1" class="col-sm-12">
-
-              <form>
-
-                <div class="form-group">
-                  <label for="Label1">Nome e cognome:<input type="text" class="form-control" id="nome" placeholder="Nome Cognome" required></label>
-
-                </div>
-
-                <div class="form-group">
-
-                  <label for="Label2">Reddito:</label>
-                  <select id="Label2" class="custom-select">
-                    <option value="0">0-25.000</option>
-                    <option value="1">25.000-50.000</option>
-                    <option value="2">50.000-75.000</option>
-                    <option value="3">Oltre 75.000</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-
-                  <label for="Label3">Sesso:</label>
-                  <select id="Label3" class="custom-select Label3">
-                    <option selected value="0">Maschio</option>
-                    <option value="1">Femmina</option>
-                  </select>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" onclick="Invia();" class="btn btn-success">Invia</button>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Annulla</button>
-            </div>
-          </div>
-          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Si</button>
         </div>
       </div>
-
     </div>
   </div>
+
+  <!-- Tabella -->
   <div class="table-responsive">
-  <table class="table table-striped table-bordered container" style="width:100%">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Cognome</th>
-        <th>Data di nascita</th>
-        <th>Reddito</th>
-        <th>Sesso</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody id = "tabella">
+    <table class="table table-striped table-bordered container" style="width:100%">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Cognome</th>
+          <th>Data di nascita</th>
+          <th>Reddito</th>
+          <th>Sesso</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tabella">
       </tbody>
+    </table>
+  </div>
+
+  <!--Bottone Modifica-->
+  <div class="modal fade" id="formModifica" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crea nuovo record</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+            <div class="container">
+
+              <div id="div1" class="col-sm-12">
+
+                <form>
+
+                  <div class="form-group">
+                    <label for="nome">Nome:<input type="text" class="form-control" id="nome" placeholder="Nome"
+                        required></label>
+
+                  </div>
+
+                  <div class="form-group">
+                    <label for="cognome">Cognome:<input type="text" class="form-control" id="cognome" placeholder="Cognome"
+                        required></label>
+
+                  </div>
+                  <div class="form-group">
+
+                    <label for="data">Data di Nascita:</label>
+                    <div class="col-sm-6">
+                      <input type="date" class="form-control" name="dob" id="data" placeholder="mm/dd/yyyy" required>
+                    </div>
+                  </div>
 
 
+                  <div class="form-group">
 
-  </table>
+                    <label for="reddito">Reddito:</label>
+                    <select id="reddito" class="custom-select">
+                      <option value="0-25.000">0-25.000</option>
+                      <option value="25.000-50.000">25.000-50.000</option>
+                      <option value="50.000-75.000">50.000-75.000</option>
+                      <option value="Oltre 75.000">Oltre 75.000</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-sm-4">
+                      <label class="radio-inline" for="male">
+                        <input type="radio" name="gender" id="male" value="male" checked> Maschio
+                      </label>
+                      <label class="radio-inline" for="female">
+                        <input type="radio" name="gender" id="female" value="female"> Femmina
+                    </div>
+                  </div>
+              </div>
+
+              <div class="modal-footer">
+                <input type="button" id="aggiungi" class="btn btn-success" data-dismiss="modal" value="Salva">
+                <input type="button" class="btn btn-danger" data-dismiss="modal" value="Annulla">
+              </div>
+            </div>
+    </form>
+  </div>
+  </div>
+
   </div>
 
 
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-    crossorigin="anonymous"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+          crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+          crossorigin="anonymous"></script>
 </body>
 
 </html>

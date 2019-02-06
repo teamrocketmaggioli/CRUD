@@ -1,6 +1,28 @@
+/*<td><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>
+            Elimina
+          </button>
 
-/*$(document).ready(function(){
-})*/
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Vuoi eliminare il record?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Si</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>*/
 var persone = [];
 
 $(document).ready(function () {
@@ -16,7 +38,9 @@ $(document).ready(function () {
         persone.push(p);
         var stampa = "";
         for(var i = 0; i < persone.length; i++){
-            stampa += ("<tr> <td>"+persone[i].nome+"</td> <td>"+persone[i].cognome+"</td> <td>"+persone[i].datanascita+"</td> <td>"+persone[i].reddito+"</td> <td>"+persone[i].sesso+"</td> <td>Elminia</td> <td>Modifica</td> </tr>");
+            var elimina ="</td> <td><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina' onclick='Elimina("+i+");'>Elimina</button></td>";
+            var modifica ="</td> <td><button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica' onclick='Modifica("+i+");'>Modifica</button></td>";
+            stampa += ("<tr> <td>"+persone[i].nome+"</td> <td>"+persone[i].cognome+"</td> <td>"+persone[i].datanascita+"</td> <td>"+persone[i].reddito+"</td> <td>"+persone[i].sesso+""+elimina+""+modifica);
         }
         $("#tabella").html(stampa);
     });
