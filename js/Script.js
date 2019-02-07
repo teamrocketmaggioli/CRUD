@@ -24,9 +24,10 @@
           </div>
         </td>*/
 var persone = [];
+var indiceCorrente;//Indice del record su cui si ha cliccato elimina/modifica
 
 $(document).ready(function () {
-    $("#aggiungi").click(function(){
+    $("#aggiungi").click(function(){//Quando clicchi su aggiungi
         var sesso;
         if( $("#male").prop( "checked" )){
             sesso = "Maschio";
@@ -35,16 +36,24 @@ $(document).ready(function () {
             sesso = "Femmina";
         }
         p = new Persona($("#nome").val(), $("#cognome").val(), $("#data").val(), $("#reddito").val(), sesso);
-        persone.push(p);
-        var stampa = "";
-        for(var i = 0; i < persone.length; i++){
-            var elimina ="</td> <td><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina' onclick='Elimina("+i+");'>Elimina</button></td>";
-            var modifica ="</td> <td><button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica' onclick='Modifica("+i+");'>Modifica</button></td>";
-            stampa += ("<tr> <td>"+persone[i].nome+"</td> <td>"+persone[i].cognome+"</td> <td>"+persone[i].datanascita+"</td> <td>"+persone[i].reddito+"</td> <td>"+persone[i].sesso+""+elimina+""+modifica);
-        }
-        $("#tabella").html(stampa);
+        persone.push(p);//Aggiunge all'array
+        Refresh();
     });
 });
+
+function AggiornaIndice(index){//Aggiorna indiceCorrente quando clicchi su modifica/elimina
+    indiceCorrente = index;
+}
+
+function Refresh(){//Aggiorna la tabella
+    var stampa = "";
+    for(var i = 0; i < persone.length; i++){
+        var elimina ="</td> <td><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina' onclick='AggiornaIndice("+i+");'>Elimina</button></td>";
+        var modifica ="</td> <td><button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica' onclick='AggiornaIndice("+i+");'>Modifica</button></td>";
+        stampa += ("<tr> <td>"+persone[i].nome+"</td> <td>"+persone[i].cognome+"</td> <td>"+persone[i].datanascita+"</td> <td>"+persone[i].reddito+"</td> <td>"+persone[i].sesso+""+elimina+""+modifica);
+    }
+    $("#tabella").html(stampa);
+}
 
 class Persona {
     constructor(nome, cognome, datanascita, reddito, sesso) {
