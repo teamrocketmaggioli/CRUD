@@ -39,7 +39,39 @@ $(document).ready(function () {
         persone.push(p);//Aggiunge all'array
         Refresh();
     });
+    $("#elimina").click(function(){//Quando clicchi su elimina
+        persone.splice(indiceCorrente, 1);
+        Refresh();
+    });
+    $("#modifica").click(function(){
+        var sesso;
+        if( $("#modmale").prop( "checked" )){
+            persone[indiceCorrente].sesso = "Maschio";
+        }
+        else{
+            persone[indiceCorrente].sesso = "Femmina";
+        }
+        persone[indiceCorrente].nome = $("#modnome").val();
+        persone[indiceCorrente].cognome = $("#modcognome").val();
+        persone[indiceCorrente].datanascita = $("#moddata").val();
+        persone[indiceCorrente].reddito = $("#modreddito").val();
+        Refresh();
+    });
 });
+
+function Modifica(index){
+    AggiornaIndice(index);
+    $("#modnome").val(persone[indiceCorrente].nome);
+    $("#modcognome").val(persone[indiceCorrente].cognome);
+    $("#moddata").val(persone[indiceCorrente].datanascita);
+    $("#modreddito").val(persone[indiceCorrente].reddito);
+    if(persone[indiceCorrente].sesso == "Maschio"){
+        $("#modmale").checked(true);
+    }
+    else{
+        $("#modfemale").checked(true);
+    }
+}
 
 function AggiornaIndice(index){//Aggiorna indiceCorrente quando clicchi su modifica/elimina
     indiceCorrente = index;
@@ -49,7 +81,7 @@ function Refresh(){//Aggiorna la tabella
     var stampa = "";
     for(var i = 0; i < persone.length; i++){
         var elimina ="</td> <td><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina' onclick='AggiornaIndice("+i+");'>Elimina</button></td>";
-        var modifica ="</td> <td><button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica' onclick='AggiornaIndice("+i+");'>Modifica</button></td>";
+        var modifica ="</td> <td><button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica' onclick='Modifica("+i+");'>Modifica</button></td>";
         stampa += ("<tr> <td>"+persone[i].nome+"</td> <td>"+persone[i].cognome+"</td> <td>"+persone[i].datanascita+"</td> <td>"+persone[i].reddito+"</td> <td>"+persone[i].sesso+""+elimina+""+modifica);
     }
     $("#tabella").html(stampa);
