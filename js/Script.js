@@ -96,20 +96,17 @@ class Persona {
         this.sesso = sesso;
     }
 
-    /*controlloEsistenza(campo) {
+    ControlloEsistenza(idcampo, smallid) {
+        var campo = $(idcampo).val();
         if(campo == null || campo == "undefined"){
+            $(smallid).text("*Questo campo è obbligatorio!");
+            $(id).css("")
             return false;
         }
         else{
             return true;
         }
     }
-
-    controlloData(campo){
-        if(controlloEsistenza(campo)){
-            if()
-        }
-    }*/
 
 }
 /*class Polygon {
