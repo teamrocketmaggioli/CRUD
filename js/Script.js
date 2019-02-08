@@ -18,6 +18,10 @@ var persone = [];
 var table;
 
 $(document).ready(function () {
+  var a = "Ciao ";
+  var b = "sono una variabile";
+  var c = a+b;
+  alert(c);
   table = $('#example').DataTable({
     "language": {
 
@@ -56,8 +60,8 @@ $(document).ready(function () {
 
 
   });
-  counter = personeTabella.length;
-  for (var i = 0; i < counter; i++) {//Carica l'array di persone
+
+  for (var i = 0; i < personeTabella.length; i++) {//Carica l'array di persone
     pers = new Persona(personeTabella[i]);
     persone.push(pers);
   }
@@ -126,6 +130,7 @@ function Refresh() {//Aggiorna i dati nell'array di persone
     p = new Persona(a[i]);
     persone.push(p);
   }
+  personeTabella=table.data();
 }
 
 function ApriInModifica() {//Apre la form con i campi da modificare
