@@ -1,18 +1,6 @@
 //https://datatables.net/
 
 var personeTabella = [//Persone dentro la tabella
-  ["Jonathan", "Joestar", "04-04-1868", "25.000-50.000 €", "Maschio", "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica' >Modifica</button>", "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>Elimina</button>"],
-  ["Joseph", "Joestar", "27-09-1920", "oltre 75.000 €", "Maschio", "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica'>Modifica</button>", "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>Elimina</button>"],
-  ["Jotaro", "Kujo", "18-12-1970", "0-25.000 €", "Maschio", "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica'>Modifica</button>", "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>Elimina</button>"],
-  ["Josuke", "Higashikata", "21-03-1983", "25.000-50.000 €", "Maschio", "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica'>Modifica</button>", "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>Elimina</button>"],
-  ["Giorno", "Giovanna", "16-04-1985", "0-25.000 €", "Maschio", "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica'>Modifica</button>", "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>Elimina</button>"],
-  ["Jolyne", "Cujoh", "12-06-1992", "0-25.000 €", "Femmina", "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica'>Modifica</button>", "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>Elimina</button>"],
-  ["Johnny", "Joestar", "11-05-1872", "25.000-50.000 €", "Maschio", "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica'>Modifica</button>", "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>Elimina</button>"],
-  ["Josuke", "Higashikata", "11-07-1992", "25.000-50.000 €", "Maschio", "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica'>Modifica</button>", "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>Elimina</button>"],
-  ["Mario", "Rossi", "15-09-2003", "oltre 75.000 €", "Maschio", "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica'>Modifica</button>", "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>Elimina</button>"],
-  ["Maria", "Rosa", "20-12-1983", "25.000-50.000 €", "Femmina", "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica'>Modifica</button>", "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>Elimina</button>"],
-  ["Rias", "Gremory", "02-04-1999", "oltre 75.000 €", "Femmina", "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica'>Modifica</button>", "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>Elimina</button>"],
-  ["Giovanna", "D'Arco", "06-01-1412", "0-25.000 €", "Femmina", "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#formModifica'>Modifica</button>", "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#formElimina'>Elimina</button>"]
 ];
 var persone = [];
 var table;
@@ -77,7 +65,17 @@ p = paginatore
 
   //Aggiungi
   $('#aggiungi').on('click', function () {
-    if (ControllaCampo("#nome", "#smallnome") && ControllaCampo("#cognome", "#smallcognome")) {
+    var c = 0;
+    if (ControllaCampo("#nome", "#smallnome")) {
+      c++;
+    }
+    if(ControllaCampo("#cognome", "#smallcognome")){
+      c++;
+    }
+    if(ControllaData("#data", "#smalldata")){
+      c++;
+    }
+    if(c == 3){
       var sesso;
       if ($("#male").prop("checked")) {
         sesso = "Maschio";
@@ -93,13 +91,6 @@ p = paginatore
       $('#formAggiungi').modal('toggle');//Chiude la form modale
     }
   });
-
-  function formatDate (input) {
-    var anno = input.substr(0, 4);
-    var mese = input.substr(5, 2);
-    var giorno = input.substr(8, 2);
-    return giorno+"-"+mese+"-"+anno;
-  }
   
 
   //Elimina
@@ -114,14 +105,24 @@ p = paginatore
   });
 
   //Modifica
-  $('button.btn-success').click(function () {//Quando premi il tasto nella tabella
-    Refresh();
+  
+  $('#example tbody').on('click', '.btn-success', function () {
     table.$('tr.selected').removeClass('selected');
     $(this).parent().parent().addClass('selected');
     ApriInModifica();
   });
   $('#modifica').click(function () {//Quando premi il tasto nella form modale
-    if (ControllaCampo("#modnome", "#smallnome") && ControllaCampo("#modcognome", "#smallmodcognome")) {
+    var c = 0;
+    if (ControllaCampo("#nome", "#smallnome")) {
+      c++;
+    }
+    if(ControllaCampo("#cognome", "#smallcognome")){
+      c++;
+    }
+    if(ControllaData("#data", "#smalldata")){
+      c++;
+    }
+    if (c == 3) {
       var sesso;
       if ($("#modmale").prop("checked")) {
         sesso = "Maschio";
@@ -140,6 +141,26 @@ p = paginatore
 
 });
 
+function ControllaData(id, smallid){
+  if ($(id).val() == null || $(id).val() == "") {
+    $(id).addClass("border-danger");
+    $(smallid).text("*Questo campo è obbligatorio!");
+    return false;
+  }
+  else{
+    $(id).removeClass("border-danger");
+    $(smallid).text("");
+    return true;
+  }
+}
+
+function formatDate (input) {
+  var giorno = input.substr(0, 2);
+  var mese = input.substr(3, 2);
+  var anno = input.substr(6, 4);
+  return anno+"-"+mese+"-"+giorno;
+}
+
 function Refresh() {//Aggiorna i dati nell'array di persone
   persone = [];
   var a = table.data();//Prende i dati salvati nella tabella sottoforma di matrice
@@ -154,7 +175,9 @@ function ApriInModifica() {//Apre la form con i campi da modificare
   var temp = (table.row('.selected').data());
   $("#modnome").val(temp[0]);
   $("#modcognome").val(temp[1]);
-  $("#moddata").val(temp[2]);
+  var data = temp[2];
+  data = formatDate(data);
+  $("#moddata").val(data);
   $("#modreddito").val(temp[3]);
   if (temp[4] == "Maschio") {
     $("#modmale").prop("checked", "true");
@@ -171,7 +194,7 @@ function ControllaCampo(id, smallid) {//Controlla che i campi siano inseriti
     return false;
   }
   else {
-    var regexp = /^[a-zA-Z]/;
+    var regexp = /^[A-Z]{1}[a-zA-Z\é\è\ò\à\ù\ì\ \'\s]{2,25}$/;
     if (regexp.test($(id).val())) {
       $(id).removeClass("border-danger");
       $(smallid).text("");
@@ -179,7 +202,7 @@ function ControllaCampo(id, smallid) {//Controlla che i campi siano inseriti
     }
     else
       $(id).addClass("border-danger");
-    $(smallid).text("*Questo campo non è corretto!\n(Puoi inserire solo lettere maiuscole e minuscole)");
+    $(smallid).html("*Questo campo non è corretto!<br>(Puoi inserire solo lettere maiuscole, minuscole, spazi, accenti e)");
     return false;
 
   }
