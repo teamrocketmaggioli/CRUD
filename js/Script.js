@@ -49,7 +49,7 @@ $(document).ready(function () {
     ],
 
     "info": false,
-    "dom": '<"row"<"#bottone.col-8"><"col-4" f>><t><lp>',/* Dispone in quest'ordine:
+    "dom": '<"row"<"#bottone.col-8"><"col-4 py-4" f>><"row" <"col-12" t>><"row"<"col-8" l><"col-4" p>>',/* Dispone in quest'ordine:
 f = cerca
 t = tabella
 l = Mostra N_PAG di TOT_PAG
@@ -113,13 +113,13 @@ p = paginatore
   });
   $('#modifica').click(function () {//Quando premi il tasto nella form modale
     var c = 0;
-    if (ControllaCampo("#nome", "#smallnome")) {
+    if (ControllaCampo("#modnome", "#smallmodnome")) {
       c++;
     }
-    if(ControllaCampo("#cognome", "#smallcognome")){
+    if(ControllaCampo("#modcognome", "#smallmodcognome")){
       c++;
     }
-    if(ControllaData("#data", "#smalldata")){
+    if(ControllaData("#moddata", "#smallmoddata")){
       c++;
     }
     if (c == 3) {
@@ -202,7 +202,7 @@ function ControllaCampo(id, smallid) {//Controlla che i campi siano inseriti
     }
     else
       $(id).addClass("border-danger");
-    $(smallid).html("*Questo campo non è corretto!<br>(Puoi inserire solo lettere maiuscole, minuscole, spazi, accenti e)");
+    $(smallid).html("*Questo campo non è corretto!<br>(Puoi inserire solo lettere maiuscole, minuscole, spazi, accenti e apostrofi)");
     return false;
 
   }
